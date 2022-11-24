@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
-  validates :link, presence: true
-
   belongs_to :user
   has_many :comments
+
+  validates :link, presence: true
 end

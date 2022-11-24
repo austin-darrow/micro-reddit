@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_many :posts
+  has_many :comments
+
   PASSWORD_FORMAT = /\A
     (?=.*\d)           # Must contain a digit
     (?=.*[a-z])        # Must contain a lower case character
@@ -12,7 +15,4 @@ class User < ApplicationRecord
   validates :display_name, format: { with: /\A[a-zA-Z0-9]+\z/,
     message: "only allows letters" }
   validates :password, format: { with: PASSWORD_FORMAT }
-
-  has_many :posts
-  has_many :comments
 end
